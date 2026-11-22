@@ -1,0 +1,249 @@
+/* ─── Stat grid ─── */
+.stat-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+  gap:16px;
+  margin-bottom:24px;
+}
+.stat-card{
+  background:var(--panel);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  padding:20px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  position:relative;
+  overflow:hidden;
+  transition:transform .2s,border-color .2s;
+}
+.stat-card:hover{
+  transform:translateY(-2px);
+  border-color:var(--border-strong);
+}
+.stat-card::after{
+  content:'';
+  position:absolute;
+  top:-50%;right:-50%;
+  width:120%;height:120%;
+  background:radial-gradient(circle,var(--c,var(--cyan)) 0%,transparent 60%);
+  opacity:.05;
+  pointer-events:none;
+}
+.stat-icon{
+  width:44px;height:44px;
+  border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,color-mix(in srgb,var(--c) 20%,transparent),transparent);
+  border:1px solid color-mix(in srgb,var(--c) 30%,transparent);
+  color:var(--c);
+  flex-shrink:0;
+}
+.stat-icon .icon{width:22px;height:22px}
+.stat-body{flex:1;min-width:0}
+.stat-label{
+  font-size:.65rem;
+  text-transform:uppercase;
+  letter-spacing:1.5px;
+  color:var(--dim);
+  font-weight:800;
+  margin-bottom:4px;
+}
+.stat-value{
+  font-size:1.9rem;
+  font-weight:900;
+  color:var(--c,var(--cyan));
+  line-height:1;
+}
+
+/* ─── Quick actions ─── */
+.quick-actions{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:14px;
+}
+.quick-btn{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:18px 20px;
+  border-radius:var(--radius-lg);
+  background:var(--panel);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border:1px solid var(--border);
+  color:var(--text);
+  font-weight:700;
+  font-size:.9rem;
+  transition:transform .2s,border-color .2s,background .2s;
+  text-align:left;
+}
+.quick-btn:hover{
+  transform:translateY(-2px);
+  border-color:var(--cyan);
+  background:linear-gradient(135deg,rgba(0,240,255,.08),transparent);
+}
+.quick-btn .icon{width:22px;height:22px;color:var(--cyan)}
+
+/* ─── Account card ─── */
+.account-card{
+  background:var(--panel);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  padding:22px;
+  margin-bottom:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,.3);
+}
+.acc-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom:20px;
+}
+.acc-user{display:flex;align-items:center;gap:12px}
+.acc-avatar{
+  width:44px;height:44px;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--cyan),var(--purple));
+  display:flex;align-items:center;justify-content:center;
+  font-weight:900;color:#000;font-size:1.05rem;
+  flex-shrink:0;
+  text-transform:uppercase;
+}
+.acc-name{font-weight:800;font-size:1rem}
+.acc-id{color:var(--dim);font-size:.75rem;font-family:var(--mono)}
+.acc-badges{display:flex;gap:6px;flex-wrap:wrap}
+
+.acc-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+  margin-bottom:16px;
+}
+.acc-grid .full{grid-column:1/-1}
+
+.acc-meta{
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+  font-size:.75rem;
+  color:var(--dim);
+  margin:12px 0;
+}
+.acc-meta .ok{color:var(--green)}
+.acc-meta .err{color:var(--danger)}
+
+.acc-actions{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:14px;
+}
+
+/* ─── Discord preview ─── */
+.discord-preview{
+  background:#313338;
+  border-radius:12px;
+  padding:14px;
+  margin-top:12px;
+  border:1px solid rgba(255,255,255,.04);
+  font-family:'gg sans','Segoe UI',sans-serif;
+}
+.dp-channel-bar{
+  display:flex;
+  gap:6px;
+  align-items:center;
+  color:#949ba4;
+  font-size:.72rem;
+  margin-bottom:10px;
+  padding-bottom:8px;
+  border-bottom:1px solid rgba(255,255,255,.05);
+}
+.dp-channel-bar strong{color:#dbdee1}
+.dp-header{display:flex;gap:12px;align-items:flex-start}
+.dp-avatar{
+  width:40px;height:40px;
+  border-radius:50%;
+  flex-shrink:0;
+  background:linear-gradient(135deg,#5865f2,#b026ff);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:900;color:#fff;font-size:1rem;
+  text-transform:uppercase;
+}
+.dp-body{flex:1;min-width:0}
+.dp-name{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap;margin-bottom:2px}
+.dp-username{color:#fff;font-weight:600;font-size:.95rem}
+.dp-bot-tag{
+  background:#5865f2;color:#fff;
+  font-size:.6rem;padding:1px 4px;
+  border-radius:3px;font-weight:600;
+}
+.dp-time{color:#949ba4;font-size:.7rem}
+.dp-message{
+  color:#dbdee1;
+  font-size:.9rem;
+  line-height:1.45;
+  white-space:pre-wrap;
+  word-break:break-word;
+}
+
+/* ─── Vouch card ─── */
+.vouch{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  padding:18px 20px;
+  margin-bottom:12px;
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+}
+.vouch-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  margin-bottom:8px;
+}
+.vouch-user{font-weight:800;color:var(--cyan)}
+.vouch-stars{color:var(--star);font-size:.95rem;letter-spacing:2px}
+.vouch-body{color:#d0d0e0;font-size:.92rem;line-height:1.55;white-space:pre-wrap}
+.vouch-time{color:var(--dim);font-size:.7rem;margin-top:10px}
+
+/* ─── Key row ─── */
+.key-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+  padding:14px 18px;
+  background:rgba(0,0,0,.35);
+  border-radius:12px;
+  border:1px solid var(--border);
+  margin-bottom:8px;
+  transition:border-color .2s;
+}
+.key-row:hover{border-color:var(--border-strong)}
+.key-code{
+  font-family:var(--mono);
+  color:var(--cyan);
+  font-size:.9rem;
+  letter-spacing:1px;
+  font-weight:700;
+  user-select:all;
+}
+.key-meta{color:var(--dim);font-size:.75rem;margin-top:3px}
+.key-meta .used{color:var(--magenta)}
+
+@media (max-width:600px){
+  .acc-grid{grid-template-columns:1fr}
+  .stat-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+  .stat-card{padding:16px}
+  .stat-value{font-size:1.5rem}
+}
