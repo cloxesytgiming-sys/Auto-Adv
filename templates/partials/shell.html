@@ -1,0 +1,45 @@
+<div class="shell" id="shell" hidden>
+  <aside class="sidebar">
+    <div class="brand">
+      <span class="brand-dot"></span>
+      NEXUS
+    </div>
+
+    <nav class="nav">
+      <button class="nav-item" data-view="dashboard">
+        <svg class="icon"><use href="#i-dashboard"/></svg>
+        <span>Dashboard</span>
+      </button>
+      <button class="nav-item" data-view="accounts">
+        <svg class="icon"><use href="#i-link"/></svg>
+        <span>Accounts</span>
+      </button>
+      <button class="nav-item" data-view="vouches">
+        <svg class="icon"><use href="#i-star"/></svg>
+        <span>Vouches</span>
+      </button>
+      <button class="nav-item nav-admin" data-view="admin" id="nav-admin" hidden>
+        <svg class="icon"><use href="#i-crown"/></svg>
+        <span>Admin</span>
+      </button>
+    </nav>
+
+    <div class="user-chip">
+      <div class="user-avatar" id="user-avatar">?</div>
+      <div class="user-info">
+        <div class="user-name" id="user-name">…</div>
+        <div class="user-role" id="user-role">User</div>
+      </div>
+      <button class="icon-btn" title="Sign out" onclick="logout()">
+        <svg class="icon"><use href="#i-logout"/></svg>
+      </button>
+    </div>
+  </aside>
+
+  <main class="main">
+    {% include 'partials/dashboard.html' %}
+    {% include 'partials/accounts.html' %}
+    {% include 'partials/vouches.html' %}
+    {% include 'partials/admin.html' %}
+  </main>
+</div>
