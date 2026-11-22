@@ -1,0 +1,25 @@
+<section class="view" id="view-vouches" hidden>
+  <header class="page-header">
+    <div>
+      <h1 class="page-title">Vouches</h1>
+      <p class="page-sub">Share your experience with Nexus.</p>
+    </div>
+  </header>
+
+  <div class="card">
+    <label>Leave a Vouch</label>
+    <textarea id="vouch-content" placeholder="This advertiser is awesome because..."></textarea>
+    <div class="row-gap">
+      <select id="vouch-rating">
+        <option value="5">★★★★★</option>
+        <option value="4">★★★★☆</option>
+        <option value="3">★★★☆☆</option>
+        <option value="2">★★☆☆☆</option>
+        <option value="1">★☆☆☆☆</option>
+      </select>
+      <button class="btn btn-primary" onclick="submitVouch()">Post Vouch</button>
+    </div>
+  </div>
+
+  <div id="vouches-list"></div>
+</section>
