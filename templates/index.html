@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#08080d">
+<title>Nexus · Auto Advertiser</title>
+<link rel="stylesheet" href="/static/css/base.css">
+<link rel="stylesheet" href="/static/css/auth.css">
+<link rel="stylesheet" href="/static/css/layout.css">
+<link rel="stylesheet" href="/static/css/components.css">
+<link rel="stylesheet" href="/static/css/pages.css">
+</head>
+<body>
+
+<div class="bg-blobs" aria-hidden="true">
+  <div class="bg-blob b1"></div>
+  <div class="bg-blob b2"></div>
+  <div class="bg-blob b3"></div>
+</div>
+<div class="grid-overlay" aria-hidden="true"></div>
+
+{% include 'partials/icons.html' %}
+
+<div id="app">
+  {% include 'partials/auth.html' %}
+  {% include 'partials/shell.html' %}
+</div>
+
+{% include 'partials/modals.html' %}
+
+<div id="toast-root"></div>
+
+<script defer src="/static/js/app.js"></script>
+<script defer src="/static/js/auth.js"></script>
+<script defer src="/static/js/dashboard.js"></script>
+<script defer src="/static/js/accounts.js"></script>
+<script defer src="/static/js/vouches.js"></script>
+<script defer src="/static/js/admin.js"></script>
+<script defer src="/static/js/main.js"></script>
+</body>
+</html>
