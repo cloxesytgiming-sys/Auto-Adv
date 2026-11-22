@@ -1,0 +1,38 @@
+<div class="modal-bg" id="modal-add-account" hidden>
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">
+      <svg class="icon"><use href="#i-close"/></svg>
+    </button>
+    <h2>Link Discord Account</h2>
+    <p class="hint">
+      Paste your raw Discord user token (no <code>Bot </code> prefix).
+      It's validated against Discord, then encrypted before storage.
+      <strong>Owner IDs bypass the key requirement.</strong>
+    </p>
+    <div class="field">
+      <label>Access Key <span style="color:var(--dim)">(blank if owner)</span></label>
+      <input id="link-key" placeholder="NX-XXXXXXXX">
+    </div>
+    <div class="field">
+      <label>Discord User Token</label>
+      <input id="link-token" type="password" placeholder="MTk4NjIy...">
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="submitLink()">Link Account</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-bg" id="modal-output" hidden>
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">
+      <svg class="icon"><use href="#i-close"/></svg>
+    </button>
+    <h2 id="output-title">Output</h2>
+    <div class="log-box" id="output-body"></div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" onclick="closeModal()">Close</button>
+    </div>
+  </div>
+</div>
