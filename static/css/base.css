@@ -1,0 +1,151 @@
+:root{
+  --bg:#06060a;
+  --panel:rgba(20,20,32,.72);
+  --panel-solid:#141420;
+  --border:rgba(255,255,255,.07);
+  --border-strong:rgba(255,255,255,.14);
+  --cyan:#00f0ff;
+  --magenta:#ff2fb3;
+  --purple:#b026ff;
+  --green:#00ff9d;
+  --star:#ffb400;
+  --danger:#ff3366;
+  --text:#e8e8f0;
+  --dim:#8a8aa8;
+  --radius:14px;
+  --radius-lg:20px;
+  --shadow:0 20px 60px rgba(0,0,0,.6);
+  --font:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+  --mono:'JetBrains Mono','Fira Code',ui-monospace,monospace;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none !important;} /* THIS FIXES THE STUCK MODALS */
+
+html,body{height:100%}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--font);
+  font-size:15px;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  min-height:100vh;
+}
+button{cursor:pointer;font-family:inherit;border:none;background:none;color:inherit}
+a{color:var(--cyan);text-decoration:none}
+img{max-width:100%;display:block}
+
+input,textarea,select{
+  width:100%;
+  background:rgba(0,0,0,.45);
+  border:1px solid var(--border);
+  color:var(--text);
+  padding:12px 14px;
+  border-radius:12px;
+  font-size:.92rem;
+  font-family:inherit;
+  outline:none;
+  transition:border-color .2s,box-shadow .2s,background .2s;
+}
+input:focus,textarea:focus,select:focus{
+  border-color:var(--cyan);
+  background:rgba(0,0,0,.6);
+  box-shadow:0 0 0 3px rgba(0,240,255,.12);
+}
+textarea{
+  resize:vertical;
+  min-height:100px;
+  line-height:1.5;
+  font-family:var(--mono);
+  font-size:.85rem;
+}
+select{cursor:pointer}
+
+label{
+  display:block;
+  font-size:.7rem;
+  text-transform:uppercase;
+  letter-spacing:1.5px;
+  color:var(--cyan);
+  font-weight:700;
+  margin-bottom:7px;
+}
+
+.icon{
+  width:20px;height:20px;
+  display:inline-block;
+  flex-shrink:0;
+  vertical-align:middle;
+}
+
+/* ─── Animated background ─── */
+.bg-blobs,.grid-overlay{
+  position:fixed;inset:0;
+  pointer-events:none;
+  z-index:-1;
+  overflow:hidden;
+}
+.bg-blob{
+  position:absolute;
+  border-radius:50%;
+  filter:blur(100px);
+  opacity:.35;
+  mix-blend-mode:screen;
+  will-change:transform;
+}
+.bg-blob.b1{
+  width:42vw;height:42vw;
+  background:radial-gradient(circle,#00f0ff 0%,transparent 70%);
+  top:3%;left:2%;
+  animation:drift1 24s ease-in-out infinite alternate;
+}
+.bg-blob.b2{
+  width:52vw;height:52vw;
+  background:radial-gradient(circle,#b026ff 0%,transparent 70%);
+  bottom:0;right:0;
+  animation:drift2 30s ease-in-out infinite alternate;
+}
+.bg-blob.b3{
+  width:32vw;height:32vw;
+  background:radial-gradient(circle,#ff2fb3 0%,transparent 70%);
+  top:40%;left:45%;
+  animation:drift3 20s ease-in-out infinite alternate;
+  opacity:.25;
+}
+@keyframes drift1{
+  0%  {transform:translate(0,0) scale(1)}
+  100%{transform:translate(22vw,16vh) scale(1.2)}
+}
+@keyframes drift2{
+  0%  {transform:translate(0,0) scale(1)}
+  100%{transform:translate(-20vw,-14vh) scale(1.25)}
+}
+@keyframes drift3{
+  0%  {transform:translate(0,0)}
+  100%{transform:translate(-28vw,20vh)}
+}
+.grid-overlay{
+  background-image:
+    linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);
+  background-size:50px 50px;
+  -webkit-mask-image:radial-gradient(circle at 50% 50%,#000 30%,transparent 80%);
+          mask-image:radial-gradient(circle at 50% 50%,#000 30%,transparent 80%);
+  animation:gridShift 40s linear infinite;
+}
+@keyframes gridShift{
+  0%  {background-position:0 0}
+  100%{background-position:50px 50px}
+}
+
+/* Scrollbar */
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:rgba(255,255,255,.08);border-radius:5px}
+::-webkit-scrollbar-thumb:hover{background:rgba(255,255,255,.16)}
+
+@media (prefers-reduced-motion:reduce){
+  .bg-blob,.grid-overlay{animation:none!important}
+}
