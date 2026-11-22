@@ -1,0 +1,24 @@
+<div class="auth-container" id="auth-container" hidden>
+  <div class="auth-card">
+    <div class="auth-brand">NEXUS</div>
+    <div class="auth-sub">Auto Advertiser Control Panel</div>
+
+    <div class="auth-tabs">
+      <button id="auth-tab-login" data-tab="login">Login</button>
+      <button id="auth-tab-register" data-tab="register">Register</button>
+    </div>
+
+    <form id="auth-form" autocomplete="on">
+      <div class="field">
+        <label for="au-name">Username</label>
+        <input id="au-name" name="username" autocomplete="username" minlength="3" required>
+      </div>
+      <div class="field">
+        <label for="au-pass">Password</label>
+        <input id="au-pass" name="password" type="password" autocomplete="current-password" minlength="6" required>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block" id="auth-submit">Sign In</button>
+      <p class="auth-hint">Username 3+ chars · Password 6+ chars</p>
+    </form>
+  </div>
+</div>
