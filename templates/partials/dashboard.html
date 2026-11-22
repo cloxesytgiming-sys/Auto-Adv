@@ -1,0 +1,50 @@
+<section class="view" id="view-dashboard" hidden>
+  <header class="page-header">
+    <div>
+      <h1 class="page-title">Dashboard</h1>
+      <p class="page-sub">Welcome back, <span id="dash-username">…</span>.</p>
+    </div>
+  </header>
+
+  <div class="stat-grid" id="dash-stats">
+    <div class="stat-card">
+      <div class="stat-icon" style="--c:var(--cyan)"><svg class="icon"><use href="#i-link"/></svg></div>
+      <div class="stat-body">
+        <div class="stat-label">Linked Accounts</div>
+        <div class="stat-value" id="stat-accounts">0</div>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon" style="--c:var(--green)"><svg class="icon"><use href="#i-play"/></svg></div>
+      <div class="stat-body">
+        <div class="stat-label">Running</div>
+        <div class="stat-value" id="stat-running">0</div>
+      </div>
+    </div>
+    <div class="stat-card stat-admin-only" hidden>
+      <div class="stat-icon" style="--c:var(--magenta)"><svg class="icon"><use href="#i-users"/></svg></div>
+      <div class="stat-body">
+        <div class="stat-label">Total Users</div>
+        <div class="stat-value" id="stat-users">0</div>
+      </div>
+    </div>
+    <div class="stat-card stat-admin-only" hidden>
+      <div class="stat-icon" style="--c:var(--purple)"><svg class="icon"><use href="#i-key"/></svg></div>
+      <div class="stat-body">
+        <div class="stat-label">Active Keys</div>
+        <div class="stat-value" id="stat-keys">0</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="quick-actions">
+    <button class="quick-btn" onclick="openAddAccount()">
+      <svg class="icon"><use href="#i-plus"/></svg>
+      <span>Link New Account</span>
+    </button>
+    <button class="quick-btn" onclick="location.hash='#vouches'">
+      <svg class="icon"><use href="#i-star"/></svg>
+      <span>Leave a Vouch</span>
+    </button>
+  </div>
+</section>
